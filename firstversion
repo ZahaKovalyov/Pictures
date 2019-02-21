@@ -1,0 +1,9 @@
+import shutil
+
+import requests
+
+url = 'https://www.google.com/search?q=%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8&tbm=isch&source=iu&ictx=1&fir=cX5MaY2nJbWUBM%253A%252CmvrxorIFd7Cv7M%252C_&usg=AI4_-kRVk-_SMl7h0VnR9fBO2ZdqKC2AwQ&sa=X&ved=2ahUKEwi9yv3BtM3gAhVR_CoKHb2YDpkQ9QEwBnoECAUQEA#imgrc=_'
+response = requests.get(url, stream=True)
+with open('Meme.png', 'wb') as out_file:
+    shutil.copyfileobj(response.raw, out_file)
+del response
